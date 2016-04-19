@@ -37,13 +37,16 @@ define(['underscore'],function(_){
      */
     PriorityQueue.prototype.insert = function(data,priority){
         //default to elem as the priority if only one thing passed in
-        if(priority === undefined && typeof elem !== 'number' && typeof elem !== 'string'){
+        if(priority === undefined && !(typeof data === 'number' || typeof data === 'string')){
             throw new Error('Unusable input types');
+        }
+        if(priority === undefined){
+            priority = data;
         }
         //add to the end:
         this.heap.push({
             data : data,
-            p : priority || elem
+            p : priority
         });
         this.bubbleUp(this.heap.length-1);        
     };
