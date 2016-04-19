@@ -89,6 +89,13 @@ module.exports = {
         test.done();
     },
 
+    single_element_retrieval_fail : function(test){
+        let pq = new PQ();
+        pq.insert(3);
+        let retrievedVal = pq.next();
+        test.ok(pq.empty());        
+        test.done();
+    },
     
     
     
