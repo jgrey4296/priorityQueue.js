@@ -61,4 +61,13 @@ Check for the priority queue to be empty:
     }
 ```
 
+### Comparisons:
+The internal comparison function is `pq.comp`, which for min heaps takes the form:
+```
+    this.comp = (a,b,i,j)=> a.p < b.p ? i : j;
+```
+Or `>` for max heaps. It takes two objects, `a` and `b`, which are objects with `data`
+and `p` fields, while `i` and `j` are the indices for those objects in the heap
+
+
 
