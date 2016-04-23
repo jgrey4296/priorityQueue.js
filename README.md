@@ -3,7 +3,7 @@
 Your standard heap based priority queue
 
 ## Dependencies:
-[lodash](https://lodash.com/)
+[lodash](https://lodash.com/)  
 [NodeUnit](https://github.com/caolan/nodeunit) for unit tests
 
 ## Basic Usage
