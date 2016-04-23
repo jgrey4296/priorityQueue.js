@@ -93,10 +93,36 @@ module.exports = {
         let pq = new PQ();
         pq.insert(3);
         let retrievedVal = pq.next();
+        test.ok(retrievedVal === 3);
         test.ok(pq.empty());        
         test.done();
     },
-    
-    
-    
+
+    priority_inference : function(test){
+        let pq = new PQ();
+        pq.insert({name : "blah", value : 3});
+        pq.insert({name : "bloo", value : 5});
+        let val = pq.next();
+        test.ok(val.name === 'blah');
+        test.ok(val.value === 3);
+        test.done();
+    },
+
+    priority_inference_manual : function(test){
+        let pq = new PQ();
+        pq.value = "age";
+        pq.insert({name : "bob", age : 23 });
+        pq.insert({name : "jill", age : 20});
+        let val = pq.next();        
+        test.ok(val.name === 'jill');
+        test.done();
+    },
+
+    priority_inference_fail : function(test){
+        let pq = new PQ();
+        test.throws(function(){
+            pq.insert({name : "bob"});
+        });        
+        test.done();
+    },
 };
