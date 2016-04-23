@@ -2,6 +2,10 @@
 
 Your standard heap based priority queue
 
+## Dependencies:
+[lodash](https://lodash.com/)
+[NodeUnit](https://github.com/caolan/nodeunit) for unit tests
+
 ## Basic Usage
 
 For Node.js use [amdefine](https://github.com/jrburke/amdefine) then:
@@ -57,5 +61,4 @@ Check for the priority queue to be empty:
     }
 ```
 
-## Unit Testing
-Unit tests are written for [NodeUnit](https://github.com/caolan/nodeunit)
+
