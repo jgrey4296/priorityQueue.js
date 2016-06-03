@@ -53,33 +53,33 @@ module.exports = {
         test.done();
     },
 
-    simple_heapify_test : function(test){
-        let pq = new PQ(),
-            sampleArray = [1,2,4,3,2,5,6,10],
-            sorted = sampleArray.sort((a,b)=>a-b);
-        pq.heapify(sampleArray);
+    // simple_heapify_test : function(test){
+    //     let pq = new PQ(),
+    //         sampleArray = [1,2,4,3,2,5,6,10],
+    //         sorted = sampleArray.sort((a,b)=>a-b);
+    //     pq.heapify(sampleArray);
 
-        while(sorted.length > 0){
-            let a = sorted.shift(),
-                b = pq.next();
-            test.ok(a === b);            
-        }        
-        test.done();
-    },
+    //     while(sorted.length > 0){
+    //         let a = sorted.shift(),
+    //             b = pq.next();
+    //         test.ok(a === b);            
+    //     }        
+    //     test.done();
+    // },
 
-    simple_MAX_heapify_test : function(test){
-        let pq = new PQ(true),
-            sampleArray = [1,2,4,3,2,5,6,10],
-            sorted = sampleArray.sort((a,b)=>b-a);
-        pq.heapify(sampleArray);
+    // simple_MAX_heapify_test : function(test){
+    //     let pq = new PQ(true),
+    //         sampleArray = [1,2,4,3,2,5,6,10],
+    //         sorted = sampleArray.sort((a,b)=>b-a);
+    //     pq.heapify(sampleArray);
 
-        while(sorted.length > 0){
-            let a = sorted.shift(),
-                b = pq.next();
-            test.ok(a === b);            
-        }        
-        test.done();
-    },
+    //     while(sorted.length > 0){
+    //         let a = sorted.shift(),
+    //             b = pq.next();
+    //         test.ok(a === b);            
+    //     }        
+    //     test.done();
+    // },
 
     call_next_on_empty_pq : function(test){
         let pq = new PQ();
@@ -125,4 +125,23 @@ module.exports = {
         });        
         test.done();
     },
+
+    infinity_test : function(test){
+        let pq = new PQ();
+        pq.insert('bob',Infinity);
+        pq.insert('whibble',10);
+        pq.insert('bill',5);
+        pq.insert('jill',0);
+
+        let val = pq.next();
+        test.ok(val === 'jill',val);
+        val = pq.next();
+        test.ok(val === 'bill',val);
+        val = pq.next();
+        test.ok(val === 'whibble',val);
+        val = pq.next();
+        test.ok(val === 'bob');
+        test.done();
+    },
+    
 };
